@@ -1,5 +1,5 @@
 // Define the URL of the Artifactory registry
-def registry = 'https://saidemy555.jfrog.io/'
+def registry = 'https://shabbir96.jfrog.io/'
 
 pipeline {                                    // 1  // Defines the start of the Jenkins pipeline block
 
@@ -35,12 +35,12 @@ pipeline {                                    // 1  // Defines the start of the 
 
         stage('SonarQube analysis') {         // 8  // Creates a stage named 'SonarQube analysis'
             environment {                     // 9  // Defines environment variables specific to this stage
-                scannerHome = tool 'saidemy-sonar-scanner'  
+                scannerHome = tool 'shabbir-sonar-scanner'  
                                               // Sets the SonarQube scanner tool
             }                                 // 9  // Ends the environment block for this stage
 
             steps {                           // 10  // Defines the steps that will be executed in this stage
-                withSonarQubeEnv('saidemy-sonarqube-server') {  
+                withSonarQubeEnv('shabbir-sonar-server') {  
                                               // Executes the SonarQube analysis within the SonarQube environment
                     sh "${scannerHome}/bin/sonar-scanner"  
                                               // Runs the SonarQube scanner tool
@@ -78,7 +78,7 @@ pipeline {                                    // 1  // Defines the start of the 
                           "files": [
                             {
                               "pattern": "jarstaging/(*)",
-                              "target": "sai-libs-release-local/{1}",
+                              "target": "shabbir-libs-release-local/{1}",
                               "flat": "false",
                               "props": "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]
